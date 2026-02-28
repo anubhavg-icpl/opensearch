@@ -94,6 +94,8 @@ dependencies {
   api libs.log4japi
   api libs.log4jjul
   api libs.log4jcore, optional
+  compileOnly libs.errorproneannotations
+  compileOnly libs.jspecify
   annotationProcessor libs.log4jcore
   annotationProcessor project(':libs:opensearch-common')
 
