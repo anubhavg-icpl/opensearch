@@ -274,10 +274,12 @@ tasks.register("branchConsistency") {
 }
 
 allprojects {
-  plugins.withType(JavaPlugin).configureEach {
-    dependencies {
-      compileOnly "com.google.errorprone:error_prone_annotations:2.26.1"
-      compileOnly "org.jspecify:jspecify:1.0.0"
+  if (project.path.startsWith(':build-tools') == false) {
+    plugins.withType(JavaPlugin).configureEach {
+      dependencies {
+        compileOnly "com.google.errorprone:error_prone_annotations:2.26.1"
+        compileOnly "org.jspecify:jspecify:1.0.0"
+      }
     }
   }
 
